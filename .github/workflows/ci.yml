@@ -39,6 +39,12 @@ jobs:
       - name: Enable pgvector extension
         run: PGPASSWORD=postgres psql -h localhost -U postgres -d insureagent -c "CREATE EXTENSION IF NOT EXISTS vector;"
 
+      - name: Ingest policy documents into vector store
+        run: python -m app.rag.ingest
+        env:
+          VECTOR_BACKEND: pgvector
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/insureagent
+
       - name: Run unit tests
         run: pytest tests/ -v
         env:
@@ -48,6 +54,7 @@ jobs:
         run: python -m app.eval.run_eval
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          VECTOR_BACKEND: pgvector
           DATABASE_URL: postgresql://postgres:postgres@localhost:5432/insureagent
 
       - name: Build Docker image
