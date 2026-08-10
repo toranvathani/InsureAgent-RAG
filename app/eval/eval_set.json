@@ -1,0 +1,62 @@
+[
+  {
+    "id": "eval_001",
+    "raw_document_text": "FNOL Form. Claim ID: CLM-1001. Policyholder: Rajesh Kumar. Policy Number: PCY-88213. Date of Loss: 2026-05-12. Description: Kitchen fire caused smoke damage to walls and ceiling. Estimated claim amount: $8,500.",
+    "expected_extraction": {
+      "claim_id": "CLM-1001",
+      "policyholder_name": "Rajesh Kumar",
+      "policy_number": "PCY-88213",
+      "loss_date": "2026-05-12",
+      "claim_amount": 8500,
+      "loss_type": "fire"
+    },
+    "expected_status": "APPROVED"
+  },
+  {
+    "id": "eval_002",
+    "raw_document_text": "Claim note: policyholder called in about water damage in basement after heavy rain. No claim ID assigned yet. Amount not yet estimated.",
+    "expected_extraction": {
+      "loss_type": "water damage"
+    },
+    "expected_status": "MORE_INFO_NEEDED"
+  },
+  {
+    "id": "eval_003",
+    "raw_document_text": "FNOL Form. Claim ID: CLM-1003. Policyholder: Priya Singh. Policy Number: PCY-55210. Date of Loss: 2026-06-01. Description: Theft of jewelry valued at $150,000 reported one day after policy purchase, no police report filed.",
+    "expected_extraction": {
+      "claim_id": "CLM-1003",
+      "policyholder_name": "Priya Singh",
+      "policy_number": "PCY-55210",
+      "loss_date": "2026-06-01",
+      "claim_amount": 150000,
+      "loss_type": "theft"
+    },
+    "expected_status": "FLAGGED_FOR_FRAUD"
+  },
+  {
+    "id": "eval_004",
+    "raw_document_text": "FNOL Form. Claim ID: CLM-2044. Policyholder: Anita Desai. Policy Number: PCY-77410. Date of Loss: 2026-07-20. Description: Burst pipe under kitchen sink flooded the lower floor overnight. Estimated claim amount: $6,200.",
+    "expected_extraction": {
+      "claim_id": "CLM-2044",
+      "policyholder_name": "Anita Desai",
+      "policy_number": "PCY-77410",
+      "loss_date": "2026-07-20",
+      "claim_amount": 6200,
+      "loss_type": "water damage"
+    },
+    "expected_status": "APPROVED"
+  },
+  {
+    "id": "eval_005",
+    "raw_document_text": "FNOL Form. Claim ID: CLM-3010. Policyholder: Marcus Chen. Policy Number: PCY-99120. Date of Loss: 2026-07-28. Description: Rear-ended another vehicle at a stoplight, front bumper and headlight damaged. Estimated claim amount: $3,400.",
+    "expected_extraction": {
+      "claim_id": "CLM-3010",
+      "policyholder_name": "Marcus Chen",
+      "policy_number": "PCY-99120",
+      "loss_date": "2026-07-28",
+      "claim_amount": 3400,
+      "loss_type": "collision"
+    },
+    "expected_status": "APPROVED"
+  }
+]
