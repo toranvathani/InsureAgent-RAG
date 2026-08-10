@@ -197,30 +197,7 @@ worth calling out on their own:
   compute (SSL handshake + potential cold-start). Adding a shared `ThreadedConnectionPool`
   cut end-to-end request latency from ~26s to ~4s.
 
-## 9. Resume Bullets
-
-**One-liner:**
-> Built InsureAgent-RAG, a multi-agent P&C insurance claims copilot using LangGraph, RAG
-> (pgVector on Neon), and Pydantic-enforced structured outputs; deployed with CI/CD-driven
-> prompt evaluation and observability.
-
-**Slightly longer, for a project section:**
-> Designed and built a 3-agent insurance claims processing system (extraction → RAG-grounded
-> policy compliance → decision synthesis) orchestrated with LangGraph, including conditional
-> routing that skips redundant LLM/RAG calls on incomplete input. Enforced structured LLM
-> outputs end-to-end with Pydantic, grounded compliance decisions in real policy text via
-> pgVector retrieval with citation tracing, and built a self-scoring evaluation harness
-> (exact-match on critical fields, fuzzy match on descriptive fields) wired into GitHub
-> Actions CI to catch prompt regressions automatically.
-
-**If asked "tell me about a bug you fixed" in an interview:**
-> My eval harness caught a case where the Decision Agent checked policy coverage before
-> checking for fraud signals, so a claim that was both suspicious and technically uncovered
-> got silently denied instead of flagged for human review. I reordered the decision logic so
-> fraud detection takes priority, added a regression test case for it, and confirmed the fix
-> against the full eval suite before shipping it.
-
-## 10. Build Order (as actually built, ~2-3 weeks)
+## 9. Build Order 
 
 1. Pydantic schemas + Extraction Agent + unit tests
 2. Ingested sample policy docs (homeowners, then auto) → local embeddings → pgVector on Neon
@@ -235,12 +212,12 @@ worth calling out on their own:
 10. Connection pooling + eval scorer fixes, driven by real accuracy/latency numbers from
     the running system, not assumptions
 
-## 11. Pushing to GitHub (with CI actually running)
+## 10. Pushing to GitHub (with CI actually running)
 
 ```bash
 git init
 git add .
-git commit -m "Initial commit: InsureAgent-RAG multi-agent claims copilot"
+git commit -m "Initial commit: InsureAgent-RAG"
 git branch -M main
 git remote add origin https://github.com/<your-username>/InsureAgent-RAG.git
 git push -u origin main
@@ -260,3 +237,8 @@ dependencies, run unit tests, run the full eval suite, and build the Docker imag
 the build if extraction or decision accuracy drops below 70%.
 
 Check the **Actions** tab on GitHub after pushing to watch it run.
+  
+## Author 
+```
+Toran V Athani
+```
