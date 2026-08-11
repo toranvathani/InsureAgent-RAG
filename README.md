@@ -5,10 +5,6 @@ An AI-powered claims processing assistant that extracts structured data from uns
 insurance documents, validates claims against policy rules using RAG, flags missing
 information, and produces a structured decision recommendation for human adjusters.
 
-Built to demonstrate the full AI Prompt Engineer + Platform Engineer skill set: agentic
-workflows, RAG, structured outputs, evaluation frameworks, API design, containerization,
-CI/CD, and observability.
-
 **Status:** eval suite passing at 100% extraction accuracy / 100% decision accuracy across
 5 labeled cases spanning two policy domains (homeowners, auto) and all four decision
 outcomes. Average request latency ~4s end-to-end (Groq extraction + local embeddings +
